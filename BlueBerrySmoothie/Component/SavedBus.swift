@@ -235,10 +235,15 @@ struct SavedBus: View {
             
             HStack(alignment: .top) {
                 VStack(alignment: .leading) {
-                    Text(busAlert?.busNo ?? "버스 번호 없음")
-                        .font(.largeTitle)
-                        .padding(.bottom, 4)
-                    
+                    HStack {
+                        Text(busAlert?.busNo ?? "버스 번호 없음")
+                            .font(.largeTitle)
+                            .padding(.bottom, 4)
+                        if busAlert?.isPinned == true {
+                            Image(systemName: "pin.fill")
+                                .foregroundStyle(.gray)
+                        }
+                    }
                     Text(busAlert?.arrivalBusStopNm ?? "도착 정류장")
                         .font(.title2)
                         .padding(.bottom, 4)
