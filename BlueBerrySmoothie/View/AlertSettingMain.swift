@@ -432,7 +432,9 @@ struct AlertSettingMain: View {
                             Spacer()
                             if isEditing == false {
  
-                                Button(action:{isSelectCitySheetPresented = true}) {
+                                Button(action:{isSelectCitySheetPresented = true
+                                    
+                                    busStopAlert = nil}) {
                                     Text("\(selectedCity.name)")
                                         .font(.body2)
                                         .foregroundStyle(.blackasset)
@@ -508,6 +510,7 @@ struct AlertSettingMain: View {
                     // sheet에 전달할 데이터를 binding으로 전달
                     SelectCityView(selectedCity: $selectedCity) // 데이터를 @Binding으로 전달
                 }
+                
                 
                 
                 
