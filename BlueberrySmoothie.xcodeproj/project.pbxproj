@@ -1,0 +1,924 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 70;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		121D491B2CE1B46B00EF5269 /* NowBusLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121D491A2CE1B46B00EF5269 /* NowBusLocationViewModel.swift */; };
+		121D491D2CE1B49000EF5269 /* BusLocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121D491C2CE1B49000EF5269 /* BusLocationModel.swift */; };
+		121D491F2CE1B4A300EF5269 /* BusLocationDecoderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121D491E2CE1B4A300EF5269 /* BusLocationDecoderModel.swift */; };
+		121D49212CE1B4E000EF5269 /* FetchBusLocationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121D49202CE1B4E000EF5269 /* FetchBusLocationAPI.swift */; };
+		1232B3B02CD1D3DE00C48414 /* BlueBerrySmoothieApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1232B3AF2CD1D3DE00C48414 /* BlueBerrySmoothieApp.swift */; };
+		1232B3B42CD1D3DF00C48414 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1232B3B32CD1D3DF00C48414 /* Assets.xcassets */; };
+		1232B3B72CD1D3DF00C48414 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1232B3B62CD1D3DF00C48414 /* Preview Assets.xcassets */; };
+		1232B3DB2CD1D40500C48414 /* BusDecoderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1232B3DA2CD1D40500C48414 /* BusDecoderModel.swift */; };
+		1232B3E42CD1D48600C48414 /* FetchBusAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1232B3E32CD1D48600C48414 /* FetchBusAPI.swift */; };
+		12D2B6C62CD36E70005CF771 /* SelectBusStopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D2B6C52CD36E70005CF771 /* SelectBusStopView.swift */; };
+		12D2B6C82CD36E94005CF771 /* BusStopModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D2B6C72CD36E94005CF771 /* BusStopModel.swift */; };
+		12D2B6CA2CD36ED8005CF771 /* BusStopDecoderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D2B6C92CD36ED8005CF771 /* BusStopDecoderModel.swift */; };
+		12D2B6CC2CD3706F005CF771 /* FetchBusStopAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D2B6CB2CD3706F005CF771 /* FetchBusStopAPI.swift */; };
+		12D2B6CF2CD3ABAF005CF771 /* BusStopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D2B6CE2CD3ABAF005CF771 /* BusStopViewModel.swift */; };
+		12D2B6D12CD3B104005CF771 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D2B6D02CD3B104005CF771 /* NetworkHelper.swift */; };
+		12D2B6D42CD3F5BE005CF771 /* getAPIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D2B6D32CD3F5BD005CF771 /* getAPIKey.swift */; };
+		12D2B6D82CD63D6A005CF771 /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D2B6D72CD63D6A005CF771 /* AlertModel.swift */; };
+		6300BEEE2CEAE36D0004E1A4 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6300BEED2CEAE36D0004E1A4 /* WidgetKit.framework */; };
+		6300BEF02CEAE36D0004E1A4 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6300BEEF2CEAE36D0004E1A4 /* SwiftUI.framework */; };
+		6300BF012CEAE36F0004E1A4 /* LiveActWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 6300BEEB2CEAE36D0004E1A4 /* LiveActWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		63B4393C2CEB96DA00B77F4D /* LiveActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B4393B2CEB96C800B77F4D /* LiveActivityManager.swift */; };
+		8B0860F92CE1A0A9007C109A /* silentSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8B0860F82CE1A0A8007C109A /* silentSound.wav */; };
+		8B0860FB2CE1DDE3007C109A /* ToastMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0860FA2CE1DDE3007C109A /* ToastMessage.swift */; };
+		8B112CA32CF060C5000827C7 /* AlertLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B112CA22CF060B0000827C7 /* AlertLoadingView.swift */; };
+		8B112CED2CF41A5C000827C7 /* LottieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B112CEC2CF41A56000827C7 /* LottieManager.swift */; };
+		8B112CF02CF41AEB000827C7 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 8B112CEF2CF41AEB000827C7 /* Lottie */; };
+		8BF2EFA82CD3A7F2008A6644 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF2EFA72CD3A7F2008A6644 /* Alert.swift */; };
+		8BF2EFAA2CD3AA2B008A6644 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF2EFA92CD3AA2B008A6644 /* NotificationManager.swift */; };
+		8BF2EFAC2CD3AA44008A6644 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF2EFAB2CD3AA44008A6644 /* LocationManager.swift */; };
+		9D0C411B2CDA3D780005A6CC /* StationPickerModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0C411A2CDA3D780005A6CC /* StationPickerModal.swift */; };
+		9D19E4B02CEF30D90065967E /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D19E4AF2CEF30D70065967E /* City.swift */; };
+		9D19E4B22CEF321E0065967E /* SelectCityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D19E4B12CEF321A0065967E /* SelectCityView.swift */; };
+		9D19E4B42CEF62360065967E /* KeyboardDismiss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D19E4B32CEF62270065967E /* KeyboardDismiss.swift */; };
+		9D19E4B62CEF8F610065967E /* CitySettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D19E4B52CEF8F550065967E /* CitySettingView.swift */; };
+		9D3382CA2CF2D318008F560A /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3382C92CF2D318008F560A /* HapticManager.swift */; };
+		9D3382CC2CF2E694008F560A /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3382CB2CF2E694008F560A /* AppView.swift */; };
+		9D3382CE2CF2E69F008F560A /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3382CD2CF2E69F008F560A /* OnboardingView.swift */; };
+		9D3383392CF31638008F560A /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3383382CF31638008F560A /* SplashView.swift */; };
+		9D5452A62CF4177500722B16 /* InfoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5452A52CF4177500722B16 /* InfoCardView.swift */; };
+		9D97B68E2CFA178100B99584 /* FetchSeoulBusAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D97B68D2CFA177B00B99584 /* FetchSeoulBusAPI.swift */; };
+		9DAC037B2D04147F005A5666 /* FetchSeoulBusStopAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAC037A2D04147F005A5666 /* FetchSeoulBusStopAPI.swift */; };
+		9DBC2A442CDC6F4D00EB19A9 /* UsingAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBC2A432CDC6F4D00EB19A9 /* UsingAlertView.swift */; };
+		9DBE9D9E2CFE199B001622E0 /* BusStopSeoulViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBE9D9D2CFE199A001622E0 /* BusStopSeoulViewModel.swift */; };
+		9DC99FE22D10723400450889 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC99FE12D10722C00450889 /* SoundManager.swift */; };
+		9DEA523F2CD362CA00A3AE68 /* SelectBusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEA523E2CD362C100A3AE68 /* SelectBusView.swift */; };
+		9DEA52432CD3637C00A3AE68 /* BusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEA52422CD3637900A3AE68 /* BusModel.swift */; };
+		9DEA52502CD4D56400A3AE68 /* busColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEA524F2CD4D56400A3AE68 /* busColor.swift */; };
+		9DEA52522CD4D57A00A3AE68 /* filterBuses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEA52512CD4D57A00A3AE68 /* filterBuses.swift */; };
+		9DEA52542CD4D5B500A3AE68 /* FetchAllBusData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEA52532CD4D5B500A3AE68 /* FetchAllBusData.swift */; };
+		9DEF126D2D11B7F80073BC7B /* FetchSeoulBusLocationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEF126C2D11B7F70073BC7B /* FetchSeoulBusLocationAPI.swift */; };
+		9DEF12752D12B9630073BC7B /* SeoulBusInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEF12742D12B9630073BC7B /* SeoulBusInfo.swift */; };
+		9DEF129E2D13BEDC0073BC7B /* BusstopWithGPS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEF129D2D13BED20073BC7B /* BusstopWithGPS.swift */; };
+		B8D679822CF38D240003A86C /* AlarmLottie.json in Resources */ = {isa = PBXBuildFile; fileRef = B8D679812CF38D240003A86C /* AlarmLottie.json */; };
+		B8D679832CF38D240003A86C /* AlarmLottie.json in Resources */ = {isa = PBXBuildFile; fileRef = B8D679812CF38D240003A86C /* AlarmLottie.json */; };
+		B8D679872CF3928E0003A86C /* refreshLottie.json in Resources */ = {isa = PBXBuildFile; fileRef = B8D679862CF3928E0003A86C /* refreshLottie.json */; };
+		B8D679882CF3928E0003A86C /* refreshLottie.json in Resources */ = {isa = PBXBuildFile; fileRef = B8D679862CF3928E0003A86C /* refreshLottie.json */; };
+		D90E0C1A2CD89CB20089883F /* AlertSettingMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90E0C192CD89CB20089883F /* AlertSettingMain.swift */; };
+		D94BF93C2CEB7F7700973D08 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		D94BF98E2CF1CC2000973D08 /* AlarmSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D94BF98D2CF1CC2000973D08 /* AlarmSound.mp3 */; };
+		D94BF98F2CF1CC2000973D08 /* AlarmSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D94BF98D2CF1CC2000973D08 /* AlarmSound.mp3 */; };
+		D968D5C82CD89EF4002DF70B /* SavedBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968D5C72CD89EF4002DF70B /* SavedBus.swift */; };
+		D968D5CA2CD912C5002DF70B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968D5C92CD912C5002DF70B /* MainView.swift */; };
+		D968D6002CDB165B002DF70B /* UIfont.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968D5F82CDB165B002DF70B /* UIfont.swift */; };
+		D968D6012CDB165B002DF70B /* SpoqaHanSansNeo-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D968D5F32CDB165B002DF70B /* SpoqaHanSansNeo-Bold.otf */; };
+		D968D6022CDB165B002DF70B /* SpoqaHanSansNeo-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = D968D5F52CDB165B002DF70B /* SpoqaHanSansNeo-Medium.otf */; };
+		D968D6032CDB165B002DF70B /* SpoqaHanSansNeo-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = D968D5F42CDB165B002DF70B /* SpoqaHanSansNeo-Light.otf */; };
+		D968D6042CDB165B002DF70B /* SpoqaHanSansNeo-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = D968D5F72CDB165B002DF70B /* SpoqaHanSansNeo-Thin.otf */; };
+		D968D6052CDB165B002DF70B /* SpoqaHanSansNeo-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D968D5F62CDB165B002DF70B /* SpoqaHanSansNeo-Regular.otf */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6300BEFF2CEAE36F0004E1A4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1232B3A42CD1D3DE00C48414 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6300BEEA2CEAE36D0004E1A4;
+			remoteInfo = LiveActWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6300BF062CEAE36F0004E1A4 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				6300BF012CEAE36F0004E1A4 /* LiveActWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		121D491A2CE1B46B00EF5269 /* NowBusLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowBusLocationViewModel.swift; sourceTree = "<group>"; };
+		121D491C2CE1B49000EF5269 /* BusLocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusLocationModel.swift; sourceTree = "<group>"; };
+		121D491E2CE1B4A300EF5269 /* BusLocationDecoderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusLocationDecoderModel.swift; sourceTree = "<group>"; };
+		121D49202CE1B4E000EF5269 /* FetchBusLocationAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchBusLocationAPI.swift; sourceTree = "<group>"; };
+		1232B3AC2CD1D3DE00C48414 /* BlueBerrySmoothie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlueBerrySmoothie.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1232B3AF2CD1D3DE00C48414 /* BlueBerrySmoothieApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueBerrySmoothieApp.swift; sourceTree = "<group>"; };
+		1232B3B32CD1D3DF00C48414 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1232B3B62CD1D3DF00C48414 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1232B3DA2CD1D40500C48414 /* BusDecoderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusDecoderModel.swift; sourceTree = "<group>"; };
+		1232B3E32CD1D48600C48414 /* FetchBusAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchBusAPI.swift; sourceTree = "<group>"; };
+		12D2B6C52CD36E70005CF771 /* SelectBusStopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBusStopView.swift; sourceTree = "<group>"; };
+		12D2B6C72CD36E94005CF771 /* BusStopModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopModel.swift; sourceTree = "<group>"; };
+		12D2B6C92CD36ED8005CF771 /* BusStopDecoderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopDecoderModel.swift; sourceTree = "<group>"; };
+		12D2B6CB2CD3706F005CF771 /* FetchBusStopAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchBusStopAPI.swift; sourceTree = "<group>"; };
+		12D2B6CE2CD3ABAF005CF771 /* BusStopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopViewModel.swift; sourceTree = "<group>"; };
+		12D2B6D02CD3B104005CF771 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		12D2B6D22CD3F50F005CF771 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		12D2B6D32CD3F5BD005CF771 /* getAPIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getAPIKey.swift; sourceTree = "<group>"; };
+		12D2B6D72CD63D6A005CF771 /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
+		6300BEEB2CEAE36D0004E1A4 /* LiveActWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = LiveActWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		6300BEED2CEAE36D0004E1A4 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		6300BEEF2CEAE36D0004E1A4 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		63B4393B2CEB96C800B77F4D /* LiveActivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityManager.swift; sourceTree = "<group>"; };
+		8B0860F82CE1A0A8007C109A /* silentSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = silentSound.wav; sourceTree = "<group>"; };
+		8B0860FA2CE1DDE3007C109A /* ToastMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastMessage.swift; sourceTree = "<group>"; };
+		8B112CA22CF060B0000827C7 /* AlertLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertLoadingView.swift; sourceTree = "<group>"; };
+		8B112CEC2CF41A56000827C7 /* LottieManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieManager.swift; sourceTree = "<group>"; };
+		8BF2EFA72CD3A7F2008A6644 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		8BF2EFA92CD3AA2B008A6644 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		8BF2EFAB2CD3AA44008A6644 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		8BF2EFAF2CD3AABF008A6644 /* Info.plist */ = {isa = PBXFileReference; explicitFileType = sourcecode.typescript; path = Info.plist; sourceTree = "<group>"; };
+		9D0C411A2CDA3D780005A6CC /* StationPickerModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationPickerModal.swift; sourceTree = "<group>"; };
+		9D19E4AF2CEF30D70065967E /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		9D19E4B12CEF321A0065967E /* SelectCityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCityView.swift; sourceTree = "<group>"; };
+		9D19E4B32CEF62270065967E /* KeyboardDismiss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDismiss.swift; sourceTree = "<group>"; };
+		9D19E4B52CEF8F550065967E /* CitySettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySettingView.swift; sourceTree = "<group>"; };
+		9D3382C92CF2D318008F560A /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
+		9D3382CB2CF2E694008F560A /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
+		9D3382CD2CF2E69F008F560A /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		9D3383382CF31638008F560A /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		9D5452A52CF4177500722B16 /* InfoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCardView.swift; sourceTree = "<group>"; };
+		9D97B68D2CFA177B00B99584 /* FetchSeoulBusAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchSeoulBusAPI.swift; sourceTree = "<group>"; };
+		9DAC037A2D04147F005A5666 /* FetchSeoulBusStopAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchSeoulBusStopAPI.swift; sourceTree = "<group>"; };
+		9DBC2A432CDC6F4D00EB19A9 /* UsingAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingAlertView.swift; sourceTree = "<group>"; };
+		9DBE9D9D2CFE199A001622E0 /* BusStopSeoulViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopSeoulViewModel.swift; sourceTree = "<group>"; };
+		9DC99FE12D10722C00450889 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		9DEA523E2CD362C100A3AE68 /* SelectBusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBusView.swift; sourceTree = "<group>"; };
+		9DEA52422CD3637900A3AE68 /* BusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusModel.swift; sourceTree = "<group>"; };
+		9DEA524F2CD4D56400A3AE68 /* busColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = busColor.swift; sourceTree = "<group>"; };
+		9DEA52512CD4D57A00A3AE68 /* filterBuses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = filterBuses.swift; sourceTree = "<group>"; };
+		9DEA52532CD4D5B500A3AE68 /* FetchAllBusData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchAllBusData.swift; sourceTree = "<group>"; };
+		9DEF126C2D11B7F70073BC7B /* FetchSeoulBusLocationAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchSeoulBusLocationAPI.swift; sourceTree = "<group>"; };
+		9DEF12742D12B9630073BC7B /* SeoulBusInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeoulBusInfo.swift; sourceTree = "<group>"; };
+		9DEF129D2D13BED20073BC7B /* BusstopWithGPS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusstopWithGPS.swift; sourceTree = "<group>"; };
+		B8D679812CF38D240003A86C /* AlarmLottie.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AlarmLottie.json; sourceTree = "<group>"; };
+		B8D679862CF3928E0003A86C /* refreshLottie.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = refreshLottie.json; sourceTree = "<group>"; };
+		D90E0C192CD89CB20089883F /* AlertSettingMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertSettingMain.swift; sourceTree = "<group>"; };
+		D94BF98D2CF1CC2000973D08 /* AlarmSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = AlarmSound.mp3; sourceTree = "<group>"; };
+		D968D5C72CD89EF4002DF70B /* SavedBus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedBus.swift; sourceTree = "<group>"; };
+		D968D5C92CD912C5002DF70B /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		D968D5F32CDB165B002DF70B /* SpoqaHanSansNeo-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Bold.otf"; sourceTree = "<group>"; };
+		D968D5F42CDB165B002DF70B /* SpoqaHanSansNeo-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Light.otf"; sourceTree = "<group>"; };
+		D968D5F52CDB165B002DF70B /* SpoqaHanSansNeo-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Medium.otf"; sourceTree = "<group>"; };
+		D968D5F62CDB165B002DF70B /* SpoqaHanSansNeo-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Regular.otf"; sourceTree = "<group>"; };
+		D968D5F72CDB165B002DF70B /* SpoqaHanSansNeo-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Thin.otf"; sourceTree = "<group>"; };
+		D968D5F82CDB165B002DF70B /* UIfont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIfont.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		6300BF022CEAE36F0004E1A4 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 6300BEEA2CEAE36D0004E1A4 /* LiveActWidgetExtension */;
+		};
+		63B439F92CED6D8E00B77F4D /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				LiveActivityUI.swift,
+			);
+			target = 1232B3AB2CD1D3DE00C48414 /* BlueBerrySmoothie */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		6300BEF12CEAE36D0004E1A4 /* LiveActWidget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (63B439F92CED6D8E00B77F4D /* PBXFileSystemSynchronizedBuildFileExceptionSet */, 6300BF022CEAE36F0004E1A4 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = LiveActWidget; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1232B3A92CD1D3DE00C48414 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B112CF02CF41AEB000827C7 /* Lottie in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6300BEE82CEAE36D0004E1A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6300BEF02CEAE36D0004E1A4 /* SwiftUI.framework in Frameworks */,
+				6300BEEE2CEAE36D0004E1A4 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		121D49222CE1B5E600EF5269 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				D968D5F82CDB165B002DF70B /* UIfont.swift */,
+				D94BF98D2CF1CC2000973D08 /* AlarmSound.mp3 */,
+				8B0860F82CE1A0A8007C109A /* silentSound.wav */,
+				B8D679862CF3928E0003A86C /* refreshLottie.json */,
+				B8D679812CF38D240003A86C /* AlarmLottie.json */,
+				D968D5F92CDB165B002DF70B /* Fonts */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		1232B3A32CD1D3DE00C48414 = {
+			isa = PBXGroup;
+			children = (
+				1232B3AE2CD1D3DE00C48414 /* BlueBerrySmoothie */,
+				6300BEF12CEAE36D0004E1A4 /* LiveActWidget */,
+				6300BEEC2CEAE36D0004E1A4 /* Frameworks */,
+				1232B3AD2CD1D3DE00C48414 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1232B3AD2CD1D3DE00C48414 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1232B3AC2CD1D3DE00C48414 /* BlueBerrySmoothie.app */,
+				6300BEEB2CEAE36D0004E1A4 /* LiveActWidgetExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1232B3AE2CD1D3DE00C48414 /* BlueBerrySmoothie */ = {
+			isa = PBXGroup;
+			children = (
+				9D3383372CF315FC008F560A /* OnBoarding&Splash */,
+				8BF2EFAF2CD3AABF008A6644 /* Info.plist */,
+				121D49222CE1B5E600EF5269 /* Resource */,
+				D90E0C112CD89C620089883F /* Component */,
+				12D2B6D22CD3F50F005CF771 /* Config.xcconfig */,
+				1232B3E92CD1D4E800C48414 /* App */,
+				1232B3E52CD1D49000C48414 /* Manager */,
+				1232B3E22CD1D46E00C48414 /* Network */,
+				1232B3DF2CD1D45A00C48414 /* Helper */,
+				1232B3DC2CD1D40800C48414 /* View */,
+				12D2B6CD2CD3AB97005CF771 /* ViewModel */,
+				1232B3D92CD1D3F700C48414 /* Model */,
+				1232B3B32CD1D3DF00C48414 /* Assets.xcassets */,
+				1232B3B52CD1D3DF00C48414 /* Preview Content */,
+			);
+			path = BlueBerrySmoothie;
+			sourceTree = "<group>";
+		};
+		1232B3B52CD1D3DF00C48414 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				1232B3B62CD1D3DF00C48414 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1232B3D92CD1D3F700C48414 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9DEF12742D12B9630073BC7B /* SeoulBusInfo.swift */,
+				9D19E4AF2CEF30D70065967E /* City.swift */,
+				8BF2EFA72CD3A7F2008A6644 /* Alert.swift */,
+				1232B3DA2CD1D40500C48414 /* BusDecoderModel.swift */,
+				9DEA52422CD3637900A3AE68 /* BusModel.swift */,
+				12D2B6C72CD36E94005CF771 /* BusStopModel.swift */,
+				12D2B6C92CD36ED8005CF771 /* BusStopDecoderModel.swift */,
+				12D2B6D72CD63D6A005CF771 /* AlertModel.swift */,
+				121D491C2CE1B49000EF5269 /* BusLocationModel.swift */,
+				121D491E2CE1B4A300EF5269 /* BusLocationDecoderModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1232B3DC2CD1D40800C48414 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8B112CA22CF060B0000827C7 /* AlertLoadingView.swift */,
+				9D19E4B52CEF8F550065967E /* CitySettingView.swift */,
+				9D19E4B12CEF321A0065967E /* SelectCityView.swift */,
+				9D0C411A2CDA3D780005A6CC /* StationPickerModal.swift */,
+				9DBC2A432CDC6F4D00EB19A9 /* UsingAlertView.swift */,
+				D90E0C192CD89CB20089883F /* AlertSettingMain.swift */,
+				9DEA523E2CD362C100A3AE68 /* SelectBusView.swift */,
+				12D2B6C52CD36E70005CF771 /* SelectBusStopView.swift */,
+				D968D5C92CD912C5002DF70B /* MainView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1232B3DF2CD1D45A00C48414 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				12D2B6D02CD3B104005CF771 /* NetworkHelper.swift */,
+				12D2B6D32CD3F5BD005CF771 /* getAPIKey.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		1232B3E22CD1D46E00C48414 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				1232B3E32CD1D48600C48414 /* FetchBusAPI.swift */,
+				12D2B6CB2CD3706F005CF771 /* FetchBusStopAPI.swift */,
+				121D49202CE1B4E000EF5269 /* FetchBusLocationAPI.swift */,
+				9D97B68D2CFA177B00B99584 /* FetchSeoulBusAPI.swift */,
+				9DAC037A2D04147F005A5666 /* FetchSeoulBusStopAPI.swift */,
+				9DEF126C2D11B7F70073BC7B /* FetchSeoulBusLocationAPI.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		1232B3E52CD1D49000C48414 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				9DEF129D2D13BED20073BC7B /* BusstopWithGPS.swift */,
+				9DC99FE12D10722C00450889 /* SoundManager.swift */,
+				8B112CEC2CF41A56000827C7 /* LottieManager.swift */,
+				9D3382C92CF2D318008F560A /* HapticManager.swift */,
+				9D19E4B32CEF62270065967E /* KeyboardDismiss.swift */,
+				8BF2EFA92CD3AA2B008A6644 /* NotificationManager.swift */,
+				8BF2EFAB2CD3AA44008A6644 /* LocationManager.swift */,
+				9DEA52532CD4D5B500A3AE68 /* FetchAllBusData.swift */,
+				9DEA52512CD4D57A00A3AE68 /* filterBuses.swift */,
+				9DEA524F2CD4D56400A3AE68 /* busColor.swift */,
+				63B4393B2CEB96C800B77F4D /* LiveActivityManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		1232B3E92CD1D4E800C48414 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				1232B3AF2CD1D3DE00C48414 /* BlueBerrySmoothieApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		12D2B6CD2CD3AB97005CF771 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				12D2B6CE2CD3ABAF005CF771 /* BusStopViewModel.swift */,
+				9DBE9D9D2CFE199A001622E0 /* BusStopSeoulViewModel.swift */,
+				121D491A2CE1B46B00EF5269 /* NowBusLocationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6300BEEC2CEAE36D0004E1A4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6300BEED2CEAE36D0004E1A4 /* WidgetKit.framework */,
+				6300BEEF2CEAE36D0004E1A4 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9D3383372CF315FC008F560A /* OnBoarding&Splash */ = {
+			isa = PBXGroup;
+			children = (
+				9D3383382CF31638008F560A /* SplashView.swift */,
+				9D3382CB2CF2E694008F560A /* AppView.swift */,
+				9D3382CD2CF2E69F008F560A /* OnboardingView.swift */,
+				9D5452A52CF4177500722B16 /* InfoCardView.swift */,
+			);
+			path = "OnBoarding&Splash";
+			sourceTree = "<group>";
+		};
+		D90E0C112CD89C620089883F /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				D968D5C72CD89EF4002DF70B /* SavedBus.swift */,
+				8B0860FA2CE1DDE3007C109A /* ToastMessage.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		D968D5F92CDB165B002DF70B /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				D968D5F32CDB165B002DF70B /* SpoqaHanSansNeo-Bold.otf */,
+				D968D5F42CDB165B002DF70B /* SpoqaHanSansNeo-Light.otf */,
+				D968D5F52CDB165B002DF70B /* SpoqaHanSansNeo-Medium.otf */,
+				D968D5F62CDB165B002DF70B /* SpoqaHanSansNeo-Regular.otf */,
+				D968D5F72CDB165B002DF70B /* SpoqaHanSansNeo-Thin.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1232B3AB2CD1D3DE00C48414 /* BlueBerrySmoothie */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1232B3D02CD1D3DF00C48414 /* Build configuration list for PBXNativeTarget "BlueBerrySmoothie" */;
+			buildPhases = (
+				1232B3A82CD1D3DE00C48414 /* Sources */,
+				1232B3A92CD1D3DE00C48414 /* Frameworks */,
+				1232B3AA2CD1D3DE00C48414 /* Resources */,
+				6300BF062CEAE36F0004E1A4 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6300BF002CEAE36F0004E1A4 /* PBXTargetDependency */,
+			);
+			name = BlueBerrySmoothie;
+			productName = BlueBerrySmoothie;
+			productReference = 1232B3AC2CD1D3DE00C48414 /* BlueBerrySmoothie.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6300BEEA2CEAE36D0004E1A4 /* LiveActWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6300BF032CEAE36F0004E1A4 /* Build configuration list for PBXNativeTarget "LiveActWidgetExtension" */;
+			buildPhases = (
+				6300BEE72CEAE36D0004E1A4 /* Sources */,
+				6300BEE82CEAE36D0004E1A4 /* Frameworks */,
+				6300BEE92CEAE36D0004E1A4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				6300BEF12CEAE36D0004E1A4 /* LiveActWidget */,
+			);
+			name = LiveActWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = LiveActWidgetExtension;
+			productReference = 6300BEEB2CEAE36D0004E1A4 /* LiveActWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1232B3A42CD1D3DE00C48414 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1610;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					1232B3AB2CD1D3DE00C48414 = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					6300BEEA2CEAE36D0004E1A4 = {
+						CreatedOnToolsVersion = 16.1;
+					};
+				};
+			};
+			buildConfigurationList = 1232B3A72CD1D3DE00C48414 /* Build configuration list for PBXProject "BlueberrySmoothie" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1232B3A32CD1D3DE00C48414;
+			packageReferences = (
+				8B112CEE2CF41AEB000827C7 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
+			productRefGroup = 1232B3AD2CD1D3DE00C48414 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1232B3AB2CD1D3DE00C48414 /* BlueBerrySmoothie */,
+				6300BEEA2CEAE36D0004E1A4 /* LiveActWidgetExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1232B3AA2CD1D3DE00C48414 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D968D6012CDB165B002DF70B /* SpoqaHanSansNeo-Bold.otf in Resources */,
+				D968D6022CDB165B002DF70B /* SpoqaHanSansNeo-Medium.otf in Resources */,
+				D968D6032CDB165B002DF70B /* SpoqaHanSansNeo-Light.otf in Resources */,
+				8B0860F92CE1A0A9007C109A /* silentSound.wav in Resources */,
+				B8D679822CF38D240003A86C /* AlarmLottie.json in Resources */,
+				D968D6042CDB165B002DF70B /* SpoqaHanSansNeo-Thin.otf in Resources */,
+				D968D6052CDB165B002DF70B /* SpoqaHanSansNeo-Regular.otf in Resources */,
+				1232B3B72CD1D3DF00C48414 /* Preview Assets.xcassets in Resources */,
+				D94BF98F2CF1CC2000973D08 /* AlarmSound.mp3 in Resources */,
+				B8D679872CF3928E0003A86C /* refreshLottie.json in Resources */,
+				1232B3B42CD1D3DF00C48414 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6300BEE92CEAE36D0004E1A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B8D679882CF3928E0003A86C /* refreshLottie.json in Resources */,
+				B8D679832CF38D240003A86C /* AlarmLottie.json in Resources */,
+				D94BF98E2CF1CC2000973D08 /* AlarmSound.mp3 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1232B3A82CD1D3DE00C48414 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D94BF93C2CEB7F7700973D08 /* (null) in Sources */,
+				9D97B68E2CFA178100B99584 /* FetchSeoulBusAPI.swift in Sources */,
+				8BF2EFAA2CD3AA2B008A6644 /* NotificationManager.swift in Sources */,
+				9D3382CC2CF2E694008F560A /* AppView.swift in Sources */,
+				9DEF12752D12B9630073BC7B /* SeoulBusInfo.swift in Sources */,
+				8BF2EFA82CD3A7F2008A6644 /* Alert.swift in Sources */,
+				1232B3B02CD1D3DE00C48414 /* BlueBerrySmoothieApp.swift in Sources */,
+				8BF2EFAC2CD3AA44008A6644 /* LocationManager.swift in Sources */,
+				12D2B6D42CD3F5BE005CF771 /* getAPIKey.swift in Sources */,
+				9DBE9D9E2CFE199B001622E0 /* BusStopSeoulViewModel.swift in Sources */,
+				1232B3DB2CD1D40500C48414 /* BusDecoderModel.swift in Sources */,
+				8B112CED2CF41A5C000827C7 /* LottieManager.swift in Sources */,
+				9D3383392CF31638008F560A /* SplashView.swift in Sources */,
+				9DAC037B2D04147F005A5666 /* FetchSeoulBusStopAPI.swift in Sources */,
+				9DEA523F2CD362CA00A3AE68 /* SelectBusView.swift in Sources */,
+				D90E0C1A2CD89CB20089883F /* AlertSettingMain.swift in Sources */,
+				12D2B6D82CD63D6A005CF771 /* AlertModel.swift in Sources */,
+				9DEA52432CD3637C00A3AE68 /* BusModel.swift in Sources */,
+				9DEA52502CD4D56400A3AE68 /* busColor.swift in Sources */,
+				8B112CA32CF060C5000827C7 /* AlertLoadingView.swift in Sources */,
+				9D19E4B22CEF321E0065967E /* SelectCityView.swift in Sources */,
+				9D0C411B2CDA3D780005A6CC /* StationPickerModal.swift in Sources */,
+				9D3382CA2CF2D318008F560A /* HapticManager.swift in Sources */,
+				12D2B6CC2CD3706F005CF771 /* FetchBusStopAPI.swift in Sources */,
+				D968D5CA2CD912C5002DF70B /* MainView.swift in Sources */,
+				9DEF126D2D11B7F80073BC7B /* FetchSeoulBusLocationAPI.swift in Sources */,
+				8B0860FB2CE1DDE3007C109A /* ToastMessage.swift in Sources */,
+				1232B3E42CD1D48600C48414 /* FetchBusAPI.swift in Sources */,
+				121D49212CE1B4E000EF5269 /* FetchBusLocationAPI.swift in Sources */,
+				9DC99FE22D10723400450889 /* SoundManager.swift in Sources */,
+				9DEA52522CD4D57A00A3AE68 /* filterBuses.swift in Sources */,
+				121D491D2CE1B49000EF5269 /* BusLocationModel.swift in Sources */,
+				12D2B6D12CD3B104005CF771 /* NetworkHelper.swift in Sources */,
+				9D19E4B62CEF8F610065967E /* CitySettingView.swift in Sources */,
+				9D19E4B02CEF30D90065967E /* City.swift in Sources */,
+				63B4393C2CEB96DA00B77F4D /* LiveActivityManager.swift in Sources */,
+				D968D5C82CD89EF4002DF70B /* SavedBus.swift in Sources */,
+				9DEA52542CD4D5B500A3AE68 /* FetchAllBusData.swift in Sources */,
+				9D19E4B42CEF62360065967E /* KeyboardDismiss.swift in Sources */,
+				9D3382CE2CF2E69F008F560A /* OnboardingView.swift in Sources */,
+				121D491B2CE1B46B00EF5269 /* NowBusLocationViewModel.swift in Sources */,
+				12D2B6CA2CD36ED8005CF771 /* BusStopDecoderModel.swift in Sources */,
+				D968D6002CDB165B002DF70B /* UIfont.swift in Sources */,
+				9DEF129E2D13BEDC0073BC7B /* BusstopWithGPS.swift in Sources */,
+				12D2B6C82CD36E94005CF771 /* BusStopModel.swift in Sources */,
+				9DBC2A442CDC6F4D00EB19A9 /* UsingAlertView.swift in Sources */,
+				12D2B6C62CD36E70005CF771 /* SelectBusStopView.swift in Sources */,
+				121D491F2CE1B4A300EF5269 /* BusLocationDecoderModel.swift in Sources */,
+				9D5452A62CF4177500722B16 /* InfoCardView.swift in Sources */,
+				12D2B6CF2CD3ABAF005CF771 /* BusStopViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6300BEE72CEAE36D0004E1A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6300BF002CEAE36F0004E1A4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6300BEEA2CEAE36D0004E1A4 /* LiveActWidgetExtension */;
+			targetProxy = 6300BEFF2CEAE36F0004E1A4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1232B3CE2CD1D3DF00C48414 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1232B3CF2CD1D3DF00C48414 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1232B3D12CD1D3DF00C48414 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 12D2B6D22CD3F50F005CF771 /* Config.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"BlueBerrySmoothie/Preview Content\"";
+				DEVELOPMENT_TEAM = UW9295Z57Q;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BlueBerrySmoothie/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "핫챠";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "비디오를 선택하여 앱에서 사용하기 위해 미디어 라이브러리 접근 권한이 필요합니다.";
+				INFOPLIST_KEY_NSFileProviderDomainUsageDescription = "";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "현재 위치를 기반으로 서비스 제공을 위해 위치 정보가 필요합니다.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "앱이 백그라운드에서도 주변 장소를 보여주기 위해 위치 정보가 필요합니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "현재 위치를 기반으로 서비스 제공을 위해 위치 정보가 필요합니다.";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.5;
+				PRODUCT_BUNDLE_IDENTIFIER = com.team.blueberrySmoothie;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		1232B3D22CD1D3DF00C48414 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 12D2B6D22CD3F50F005CF771 /* Config.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"BlueBerrySmoothie/Preview Content\"";
+				DEVELOPMENT_TEAM = UW9295Z57Q;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BlueBerrySmoothie/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "핫챠";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "비디오를 선택하여 앱에서 사용하기 위해 미디어 라이브러리 접근 권한이 필요합니다.";
+				INFOPLIST_KEY_NSFileProviderDomainUsageDescription = "";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "현재 위치를 기반으로 서비스 제공을 위해 위치 정보가 필요합니다.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "앱이 백그라운드에서도 주변 장소를 보여주기 위해 위치 정보가 필요합니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "현재 위치를 기반으로 서비스 제공을 위해 위치 정보가 필요합니다.";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.5;
+				PRODUCT_BUNDLE_IDENTIFIER = com.team.blueberrySmoothie;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		6300BF042CEAE36F0004E1A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UW9295Z57Q;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LiveActWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = LiveActWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.5;
+				PRODUCT_BUNDLE_IDENTIFIER = com.team.blueberrySmoothie.Dev.LiveActWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		6300BF052CEAE36F0004E1A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GF3B5LP7RQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LiveActWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = LiveActWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.5;
+				PRODUCT_BUNDLE_IDENTIFIER = com.team.blueberrySmoothie.LiveActWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1232B3A72CD1D3DE00C48414 /* Build configuration list for PBXProject "BlueberrySmoothie" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1232B3CE2CD1D3DF00C48414 /* Debug */,
+				1232B3CF2CD1D3DF00C48414 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1232B3D02CD1D3DF00C48414 /* Build configuration list for PBXNativeTarget "BlueBerrySmoothie" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1232B3D12CD1D3DF00C48414 /* Debug */,
+				1232B3D22CD1D3DF00C48414 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6300BF032CEAE36F0004E1A4 /* Build configuration list for PBXNativeTarget "LiveActWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6300BF042CEAE36F0004E1A4 /* Debug */,
+				6300BF052CEAE36F0004E1A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8B112CEE2CF41AEB000827C7 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8B112CEF2CF41AEB000827C7 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B112CEE2CF41AEB000827C7 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 1232B3A42CD1D3DE00C48414 /* Project object */;
+}
