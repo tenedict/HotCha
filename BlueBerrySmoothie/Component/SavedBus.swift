@@ -120,14 +120,14 @@ struct SavedBus: View {
                                     }
                                 HStack {
                                     Image(systemName: "play.fill")
-                                        .font(.caption1)
+                                        .font(.caption2)
                                         .foregroundColor(.grayfix1)
                                     Text("시작하기")
-                                        .font(.caption1)
+                                        .font(.caption2)
                                         .foregroundColor(.black)
                                 }
-                                .padding(.horizontal, 20)
-                                .padding(.vertical, 12)
+                                .padding(.horizontal, 10)
+                                .padding(.vertical, 8)
                             }
                             .fixedSize(horizontal: true, vertical: true)
                         }
@@ -136,6 +136,7 @@ struct SavedBus: View {
                 }
                 .cornerRadius(16)
                 .padding(.bottom, 16)
+                .padding(.top, 5)
                 .padding(.horizontal, 20)
             }
             .cornerRadius(16)
