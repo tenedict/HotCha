@@ -95,7 +95,7 @@ struct MainView: View {
                         SavedBus(busStopLocals: busStopLocal, busAlert: alert, isSelected: selectedAlert?.id == alert.id, onDelete: {
                             deleteBusAlert(alert) // 삭제 동작
                         }, createdAt: alert.createdAt)
-                        Divider()
+//                        Divider()
                         .onTapGesture {
                             selectedAlert = alert
                             if let foundStop = findAlertBusStop(busAlert: alert, busStops: busStopLocal) {
