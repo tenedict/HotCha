@@ -132,16 +132,16 @@ struct UsingAlertView: View {
                 Button(action: {
                     self.showExitConfirmation.toggle();
                 }, label: {
-//                    Image(systemName: "xmark")
-//                        .foregroundStyle(.gray1Dgray6)
-                    Text("즉시 종료")
-                        .font(.system(size: 12))
-                        .padding(4)
-                    .foregroundStyle(.whiteasset)
-                    .background(
-                        Capsule()
-                            .fill(.red) // 배경색을 brand로 설정
-                    )
+                    Image(systemName: "xmark")
+                        .foregroundStyle(.gray1Dgray6)
+//                    Text("즉시 종료")
+//                        .font(.system(size: 12))
+//                        .padding(4)
+//                    .foregroundStyle(.whiteasset)
+//                    .background(
+//                        Capsule()
+//                            .fill(.red) // 배경색을 brand로 설정
+//                    )
                 })
             }
         }
