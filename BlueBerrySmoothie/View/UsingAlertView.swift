@@ -314,11 +314,25 @@ struct UsingAlertView: View {
                        
                    }
                   
-                   if LocationManager.shared.BusstopWithGPS(
-                    latitude: alertStop?.gpslati ?? 0 ,
-                    longitude: alertStop?.gpslong ?? 0
-                ) {
-                    triggerNotification()
+                   
+                   if let correctedStop = validateAndFixCoordinates(latitude: alertStop?.gpslati ?? 0,
+                                                                    longitude: alertStop?.gpslong ?? 0) {
+                       if LocationManager.shared.BusstopWithGPS(latitude: correctedStop.latitude,
+                                                                longitude: correctedStop.longitude) {
+                           print("이게 울리는거임?")
+                           triggerNotification()
+                       } else {print(LocationManager.shared.BusstopWithGPS(latitude: correctedStop.latitude,
+                                                                           longitude: correctedStop.longitude))}
+                   }
+                   func validateAndFixCoordinates(latitude: Double, longitude: Double) -> (latitude: Double, longitude: Double)? {
+                       // 위도와 경도가 올바른지 확인 (대한민국 기준 위도: 약 33~38, 경도: 약 124~132)
+                       if latitude >= 33, latitude <= 38, longitude >= 124, longitude <= 132 {
+                           return (latitude, longitude) // 유효한 경우 그대로 반환
+                       } else if longitude >= 33, longitude <= 38, latitude >= 124, latitude <= 132 {
+                           return (longitude, latitude) // 뒤바뀐 경우 수정 후 반환
+                       }
+                       
+                       return nil // 유효하지 않은 경우 nil 반환
                    }
                    
                    // 현재 시간을 업데이트
@@ -454,16 +468,29 @@ struct UsingAlertView: View {
                        return
                    }
                    
-                   if busAlert.arrivalBusStopNord - (Int(closestBus.sectOrd) ?? 0) != busAlert.alertBusStop {
+                   if busAlert.arrivalBusStopNord - (Int(closestBus.sectOrd) ?? 0) == busAlert.alertBusStop {
+                       print(busAlert.arrivalBusStopNord - (Int(closestBus.sectOrd) ?? 0),busAlert.alertBusStop,"확인")
                        triggerNotification()
                    }
                    
                    print(alertStop?.nodenm)
-                   if LocationManager.shared.BusstopWithGPS(
-                    latitude: alertStop?.gpslati ?? 0 ,
-                    longitude: alertStop?.gpslong ?? 0
-                ) {
-                    triggerNotification()
+                   if let correctedStop = validateAndFixCoordinates(latitude: alertStop?.gpslati ?? 0,
+                                                                    longitude: alertStop?.gpslong ?? 0) {
+                       if LocationManager.shared.BusstopWithGPS(latitude: correctedStop.latitude,
+                                                                longitude: correctedStop.longitude) {
+                           print("이게 울리는거임?")
+                           triggerNotification()
+                       }
+                   }
+                   func validateAndFixCoordinates(latitude: Double, longitude: Double) -> (latitude: Double, longitude: Double)? {
+                       // 위도와 경도가 올바른지 확인 (대한민국 기준 위도: 약 33~38, 경도: 약 124~132)
+                       if latitude >= 33, latitude <= 38, longitude >= 124, longitude <= 132 {
+                           return (latitude, longitude) // 유효한 경우 그대로 반환
+                       } else if longitude >= 33, longitude <= 38, latitude >= 124, latitude <= 132 {
+                           return (longitude, latitude) // 뒤바뀐 경우 수정 후 반환
+                       }
+                       
+                       return nil // 유효하지 않은 경우 nil 반환
                    }
                    
                    // 현재 시간을 업데이트

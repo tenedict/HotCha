@@ -1,5 +1,7 @@
 // 정류장 선택
 
+//alertsettingmain에서 몇정류장에 알람울릴지 선택하는 모달
+
 import SwiftUI
 
 struct StationPickerModal: View {

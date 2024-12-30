@@ -17,7 +17,7 @@ extension LocationManager {
 
         // 현재 위치의 위도, 경도를 출력
         print("내 위치 - 위도: \(currentLocation.coordinate.latitude), 경도: \(currentLocation.coordinate.longitude)")
-        print(latitude, longitude)
+        print(latitude, longitude,"??")
         let targetLocation = CLLocation(latitude: latitude, longitude: longitude)
         let distance = currentLocation.distance(from: targetLocation)
 

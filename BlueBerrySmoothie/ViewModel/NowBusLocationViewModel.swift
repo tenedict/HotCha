@@ -122,16 +122,22 @@ class NowBusLocationViewModel: NSObject, ObservableObject {
     func findClosestSeoulBusLocation() {
         guard let userLocation = locationManager.currentLocation else { return }
 
+        // 서울 버스 위치 데이터를 오류 보정 후 사용
+        let correctedLocations = seoulBusLocations.map { validateAndFixSeoulCoordinates(for: $0) }
+
         // 가장 가까운 버스를 찾는 로직
-        closestSeoulBusLocation = seoulBusLocations.min(by: { bus1, bus2 in
+        closestSeoulBusLocation = correctedLocations.min(by: { bus1, bus2 in
             let busLocation1 = CLLocation(latitude: bus1.gpsY, longitude: bus1.gpsX)
             let busLocation2 = CLLocation(latitude: bus2.gpsY, longitude: bus2.gpsX)
-            
-            print(closestSeoulBusLocation?.gpsX)
-            
+
             return userLocation.distance(from: busLocation1) < userLocation.distance(from: busLocation2)
-            
         })
+
+        if let closestBus = closestSeoulBusLocation {
+            print("가장 가까운 서울 버스 위치: (\(closestBus.gpsY), \(closestBus.gpsX))")
+        } else {
+            print("가까운 버스를 찾을 수 없습니다.")
+        }
     }
 //
 //    // API를 호출하여 서울 버스 위치 데이터를 가져오는 함수(위도 경도 오류 )
@@ -151,29 +157,28 @@ class NowBusLocationViewModel: NSObject, ObservableObject {
     func fetchSeoulBusLocationData(routeId: String, completion: @escaping () -> Void) {
         fetchSeoulBusLocation(busRouteId: routeId) { [weak self] locations, errorMessage in
             DispatchQueue.main.async {
-                // API에서 받은 서울 버스 위치 데이터를 보정 후 저장
                 if let locations = locations {
                     // 보정된 데이터를 저장하고 출력
                     self?.seoulBusLocations = locations.map {
-                        let correctedBusInfo = self?.validateAndFixCoordinates(for: $0) ?? $0
-                        print("보정된 버스 위치: \(correctedBusInfo)")  // 보정된 값 출력
+                        let correctedBusInfo = self?.validateAndFixSeoulCoordinates(for: $0) ?? $0
+                        print("보정된 서울 버스 위치: \(correctedBusInfo)") // 보정된 값 출력
                         return correctedBusInfo
                     }
                 }
-                completion()  // 버스 위치 데이터를 다 가져오면 completion 핸들러 호출
+                completion()  // 데이터를 다 가져오면 completion 핸들러 호출
             }
         }
     }
 
-    private func validateAndFixCoordinates(for busInfo: BusInfo) -> BusInfo {
+    private func validateAndFixSeoulCoordinates(for busInfo: BusInfo) -> BusInfo {
         var correctedBusInfo = busInfo
         
-        // gpsY, gpsX가 Double 타입일 경우
-        let latitude = busInfo.gpsX
-        let longitude = busInfo.gpsY
+        // gpsY: 위도, gpsX: 경도
+        let latitude = busInfo.gpsY
+        let longitude = busInfo.gpsX
         
-        // 위도와 경도가 올바른지 확인 (대한민국 기준 위도는 약 33~38, 경도는 약 124~132)
-        if latitude < 20 || latitude > 40 || longitude < 110 || longitude > 140 {
+        // 위도와 경도가 올바른지 확인 (대한민국 기준 위도: 약 33~38, 경도: 약 124~132)
+        if latitude < 33 || latitude > 38 || longitude < 124 || longitude > 132 {
             // 위도와 경도가 뒤바뀐 경우 수정
             correctedBusInfo.gpsY = latitude
             correctedBusInfo.gpsX = longitude

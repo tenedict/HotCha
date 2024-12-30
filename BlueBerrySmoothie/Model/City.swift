@@ -26,7 +26,7 @@ let cities: [City] = [
         City(id: "23", category: "광역시/특별시/특별자치도", name: "인천광역시", consonant: "ㅇ"),
         City(id: "24", category: "광역시/특별시/특별자치도", name: "광주광역시", consonant: "ㄱ"),
         City(id: "25", category: "광역시/특별시/특별자치도", name: "대전광역시/계룡시", consonant: "ㄷ"),
-        City(id: "26", category: "광역시/특별시/특별자치도", name: "울산광역시", consonant: "ㅇ"),
+//        City(id: "26", category: "광역시/특별시/특별자치도", name: "울산광역시", consonant: "ㅇ"),
         City(id: "39", category: "광역시/특별시/특별자치도", name: "제주도", consonant: "ㅈ"),
         City(id: "31010", category: "경기도", name: "수원시", consonant: "ㅅ"),
         City(id: "31020", category: "경기도", name: "성남시", consonant: "ㅅ"),
