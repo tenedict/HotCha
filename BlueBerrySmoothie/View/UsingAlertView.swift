@@ -1,5 +1,4 @@
-// 이뷰가 바뀐게 참 많은데요
-//전체적인 구조는 여기 적어두겠습니다
+
 // 전체 몸통
 // 전국용 버스 정보창
 // 서울용 버스 정보창
@@ -218,87 +217,90 @@ struct UsingAlertView: View {
         
         var body: some View {
             ZStack {
-                Rectangle()
-                    .fill(.whiteasset)
-                    .opacity(0.8)
-                    .cornerRadius(16)
-                    .shadow(radius: 2)
-                    .frame(maxWidth: .infinity, maxHeight: 200)
-                
-                VStack(alignment: .leading, spacing: 3) {
-                    // 버스 정보
-                    HStack(spacing: 5) {
-                        Image(systemName: "square.fill")
-                            .foregroundStyle(busColor(for: busAlert.routetp))
-                            .frame(width: 12, height: 12)
-                        
-                        Text("\(busAlert.busNo)")
-                            .font(.caption2)
-                            .foregroundStyle(.gray3Dgray6)
-                        
-                        Rectangle()
-                            .frame(width: 2, height: 8)
-                            .foregroundStyle(.gray3Dgray6)
-                        
-                        Text(busAlert.arrivalBusStopNm)
-                            .font(.caption2)
-                            .foregroundStyle(.gray3Dgray6)
-                        
-                    }.padding(.bottom, 20)
+                if let closestBus = viewModel.closestBusLocation {
+                    Rectangle()
+                        .fill(.whiteasset)
+                        .opacity(0.8)
+                        .cornerRadius(16)
+                        .shadow(radius: 2)
+                        .frame(maxWidth: .infinity, maxHeight: 200)
                     
-                    // 현재 위치 정보
-                    if let closestBus = viewModel.closestBusLocation {
-                        Text("알람까지 \(busAlert.arrivalBusStopNord - (Int(closestBus.nodeord) ?? 0)) 정류장 남았습니다.")
-                            .font(.title2)
-                            .foregroundStyle(.blackDGray7)
-                            .padding(.bottom, 10)
+                    VStack(alignment: .leading, spacing: 3) {
+                        // 버스 정보
+                        HStack(spacing: 5) {
+                            Image(systemName: "square.fill")
+                                .foregroundStyle(busColor(for: busAlert.routetp))
+                                .frame(width: 12, height: 12)
+                            
+                            Text("\(busAlert.busNo)")
+                                .font(.caption2)
+                                .foregroundStyle(.gray3Dgray6)
+                            
+                            Rectangle()
+                                .frame(width: 2, height: 8)
+                                .foregroundStyle(.gray3Dgray6)
+                            
+                            Text(busAlert.arrivalBusStopNm)
+                                .font(.caption2)
+                                .foregroundStyle(.gray3Dgray6)
+                            
+                        }.padding(.bottom, 20)
                         
-                        Text("현재 정류장은")
-                            .font(.caption1)
-                            .foregroundStyle(.gray1Dgray6)
-                        HStack(spacing: 2){
-                            Text("\(closestBus.nodenm)")
+                        // 현재 위치 정보
+                            Text("알람까지 \(busAlert.arrivalBusStopNord - (Int(closestBus.nodeord) ?? 0)) 정류장 남았습니다.")
+                                .font(.title2)
+                                .foregroundStyle(.blackDGray7)
+                                .padding(.bottom, 10)
+                            
+                            Text("현재 정류장은")
                                 .font(.caption1)
-                                .foregroundStyle(.brand)
-                            Text("입니다.")
-                                .font(.caption1)
-                                .foregroundStyle(.gray1)
-                                .onAppear {
-                                    let currentDate = Date()  // 현재 시간을 가져옵니다.
-
-                                    let formatter = DateFormatter()
-                                    formatter.dateFormat = "HH:mm:ss"  // 원하는 시간 포맷을 지정합니다.
-                                    let formattedTime = formatter.string(from: currentDate)
-                                    
-                                    LiveActivityManager.shared.startLiveActivity(title: busAlert.alertLabel ?? "알 수 없는 알람" , description: busAlert.busNo, stationName: busAlert.arrivalBusStopNm, initialProgress: 99, currentStop: closestBus.nodenm, stopsRemaining: busAlert.arrivalBusStopNord - (Int(closestBus.nodeord) ?? 0), Updatetime: formattedTime)
-                                    
-                                    startAutoUpdating()
-                                }
-                            // 타이머로 5초마다 업데이트
-                          
-                        }
-                    }
-                    
-                    //새로고침 시간, 새로고침 버튼
-                    HStack(spacing: 8){
-                        Spacer()
-                        refreshButtonLottie
-                            .frame(width: 24, height: 24)
-                            .onTapGesture {
-                                // 새로고침 로직 실행
-                                isScrollTriggered = true // 스크롤 트리거 활성화
-                                // 애니메이션 제어
-                                refreshButtonLottie.stop() // 버튼 클릭 시 기존 애니메이션 멈춤
-                                refreshButtonLottie.play() // 버튼 클릭 시 새 애니메이션 실행
-                                // 햅틱 피드백 (진동 효과) 트리거
-                                DispatchQueue.main.asyncAfter(deadline: .now()) {
-                                    HapticManager.shared.triggerImpactFeedback(style: .medium) // 중간 강도의 햅틱 효과 실행
-                                }
+                                .foregroundStyle(.gray1Dgray6)
+                            HStack(spacing: 2){
+                                Text("\(closestBus.nodenm)")
+                                    .font(.caption1)
+                                    .foregroundStyle(.brand)
+                                Text("입니다.")
+                                    .font(.caption1)
+                                    .foregroundStyle(.gray1)
+                                    .onAppear {
+                                        let currentDate = Date()  // 현재 시간을 가져옵니다.
+                                        
+                                        let formatter = DateFormatter()
+                                        formatter.dateFormat = "HH:mm:ss"  // 원하는 시간 포맷을 지정합니다.
+                                        let formattedTime = formatter.string(from: currentDate)
+                                        
+                                        LiveActivityManager.shared.startLiveActivity(title: busAlert.alertLabel ?? "알 수 없는 알람" , description: busAlert.busNo, stationName: busAlert.arrivalBusStopNm, initialProgress: 99, currentStop: closestBus.nodenm, stopsRemaining: busAlert.arrivalBusStopNord - (Int(closestBus.nodeord) ?? 0), Updatetime: formattedTime)
+                                        
+                                        startAutoUpdating()
+                                    }
+                                // 타이머로 5초마다 업데이트
+                                
                             }
+                        
+                        
+                        //새로고침 시간, 새로고침 버튼
+                        HStack(spacing: 8){
+                            Spacer()
+                            refreshButtonLottie
+                                .frame(width: 24, height: 24)
+                                .onTapGesture {
+                                    // 새로고침 로직 실행
+                                    isScrollTriggered = true // 스크롤 트리거 활성화
+                                    // 애니메이션 제어
+                                    refreshButtonLottie.stop() // 버튼 클릭 시 기존 애니메이션 멈춤
+                                    refreshButtonLottie.play() // 버튼 클릭 시 새 애니메이션 실행
+                                    // 햅틱 피드백 (진동 효과) 트리거
+                                    DispatchQueue.main.asyncAfter(deadline: .now()) {
+                                        HapticManager.shared.triggerImpactFeedback(style: .medium) // 중간 강도의 햅틱 효과 실행
+                                    }
+                                }
+                        }
+                        .padding(.trailing, 4)
                     }
-                    .padding(.trailing, 4)
+                    .padding(.horizontal ,24)
+                } else {
+                    NoBussignalView()
                 }
-                .padding(.horizontal ,24)
             }
         }
         //자동으로 상태 업데이트
@@ -374,6 +376,7 @@ struct UsingAlertView: View {
         
         var body: some View {
             ZStack {
+                if let closestBus = viewModel.closestSeoulBusLocation {
                 Rectangle()
                     .fill(.whiteasset)
                     .opacity(0.8)
@@ -402,14 +405,13 @@ struct UsingAlertView: View {
                     }.padding(.bottom, 20)
                     
                     // 현재 위치 정보
-                    if let closestBus = viewModel.closestSeoulBusLocation {
                         Text("도착까지 \(busAlert.arrivalBusStopNord - (Int(closestBus.sectOrd) ?? 0)) 정류장 남았습니다.")
                             .font(.title2)
                             .foregroundStyle(.blackDGray7)
                             .padding(.bottom, 10)
                         
                         
-                       
+                        
                         Text("현재 정류장은")
                             .font(.caption1)
                             .foregroundStyle(.gray1Dgray6)
@@ -424,7 +426,7 @@ struct UsingAlertView: View {
                                 .foregroundStyle(.gray1)
                                 .onAppear {
                                     let currentDate = Date()  // 현재 시간을 가져옵니다.
-
+                                    
                                     let formatter = DateFormatter()
                                     formatter.dateFormat = "HH:mm:ss"  // 원하는 시간 포맷을 지정합니다.
                                     let formattedTime = formatter.string(from: currentDate)
@@ -433,9 +435,9 @@ struct UsingAlertView: View {
                                     
                                     startAutoUpdating()
                                 }
-                                
+                            
                         }
-                    }
+                    
                     
                     //새로고침 시간, 새로고침 버튼
                     HStack(spacing: 8){
@@ -457,6 +459,9 @@ struct UsingAlertView: View {
                     .padding(.trailing, 4)
                 }
                 .padding(.horizontal ,24)
+            }  else {
+                NoBussignalView()
+            }
             }
         }
         

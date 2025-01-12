@@ -51,6 +51,8 @@
 		9DBC2A442CDC6F4D00EB19A9 /* UsingAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBC2A432CDC6F4D00EB19A9 /* UsingAlertView.swift */; };
 		9DBE9D9E2CFE199B001622E0 /* BusStopSeoulViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBE9D9D2CFE199A001622E0 /* BusStopSeoulViewModel.swift */; };
 		9DC99FE22D10723400450889 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC99FE12D10722C00450889 /* SoundManager.swift */; };
+		9DD34F632D33B9ED0049E5F3 /* NoBussignalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD34F622D33B9E10049E5F3 /* NoBussignalView.swift */; };
+		9DD34F722D33BBA70049E5F3 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD34F712D33BBA70049E5F3 /* NetworkMonitor.swift */; };
 		9DEA523F2CD362CA00A3AE68 /* SelectBusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEA523E2CD362C100A3AE68 /* SelectBusView.swift */; };
 		9DEA52432CD3637C00A3AE68 /* BusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEA52422CD3637900A3AE68 /* BusModel.swift */; };
 		9DEA52502CD4D56400A3AE68 /* busColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEA524F2CD4D56400A3AE68 /* busColor.swift */; };
@@ -148,6 +150,8 @@
 		9DBC2A432CDC6F4D00EB19A9 /* UsingAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingAlertView.swift; sourceTree = "<group>"; };
 		9DBE9D9D2CFE199A001622E0 /* BusStopSeoulViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopSeoulViewModel.swift; sourceTree = "<group>"; };
 		9DC99FE12D10722C00450889 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		9DD34F622D33B9E10049E5F3 /* NoBussignalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoBussignalView.swift; sourceTree = "<group>"; };
+		9DD34F712D33BBA70049E5F3 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		9DEA523E2CD362C100A3AE68 /* SelectBusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBusView.swift; sourceTree = "<group>"; };
 		9DEA52422CD3637900A3AE68 /* BusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusModel.swift; sourceTree = "<group>"; };
 		9DEA524F2CD4D56400A3AE68 /* busColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = busColor.swift; sourceTree = "<group>"; };
@@ -293,6 +297,7 @@
 		1232B3DC2CD1D40800C48414 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9DD34F622D33B9E10049E5F3 /* NoBussignalView.swift */,
 				8B112CA22CF060B0000827C7 /* AlertLoadingView.swift */,
 				9D19E4B52CEF8F550065967E /* CitySettingView.swift */,
 				9D19E4B12CEF321A0065967E /* SelectCityView.swift */,
@@ -331,6 +336,7 @@
 		1232B3E52CD1D49000C48414 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				9DD34F712D33BBA70049E5F3 /* NetworkMonitor.swift */,
 				9DEF129D2D13BED20073BC7B /* BusstopWithGPS.swift */,
 				9DC99FE12D10722C00450889 /* SoundManager.swift */,
 				8B112CEC2CF41A56000827C7 /* LottieManager.swift */,
@@ -525,12 +531,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DD34F632D33B9ED0049E5F3 /* NoBussignalView.swift in Sources */,
 				D94BF93C2CEB7F7700973D08 /* (null) in Sources */,
 				9D97B68E2CFA178100B99584 /* FetchSeoulBusAPI.swift in Sources */,
 				8BF2EFAA2CD3AA2B008A6644 /* NotificationManager.swift in Sources */,
 				9D3382CC2CF2E694008F560A /* AppView.swift in Sources */,
 				9DEF12752D12B9630073BC7B /* SeoulBusInfo.swift in Sources */,
 				8BF2EFA82CD3A7F2008A6644 /* Alert.swift in Sources */,
+				9DD34F722D33BBA70049E5F3 /* NetworkMonitor.swift in Sources */,
 				1232B3B02CD1D3DE00C48414 /* BlueBerrySmoothieApp.swift in Sources */,
 				8BF2EFAC2CD3AA44008A6644 /* LocationManager.swift in Sources */,
 				12D2B6D42CD3F5BE005CF771 /* getAPIKey.swift in Sources */,
