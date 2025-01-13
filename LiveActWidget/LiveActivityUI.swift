@@ -129,12 +129,12 @@ struct LiveActivityUI: Widget {
         
         // 남은 정류장 수가 +인 경우
         if remainStopCount >= 0 {
-            return "도착까지 \(remainStopCount) 정류장 남았습니다."
+            return "목적지까지 \(remainStopCount) 정류장 남았습니다."
         }
         
         // 남은 정류장 수가 -인 경우
         if remainStopCount < 0{
-            return "도착지로부터 \(-remainStopCount) 정류장 지났습니다."
+            return "목적지로부터 \(-remainStopCount) 정류장 지났습니다."
         }
         
         return "다시 조회해주십시오."

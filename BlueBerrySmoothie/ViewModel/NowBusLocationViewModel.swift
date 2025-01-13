@@ -101,7 +101,7 @@ class NowBusLocationViewModel: NSObject, ObservableObject {
                 // 도착 정류장을 지난 버스를 배열에서 제외
                 // NowbusLocations 배열에 있는 요소들 중 요소.nodeOrd(Int 타입)의 값이 nodeOrd 보다 크면 배열에서 뺌
                 self?.NowbusLocations = self?.NowbusLocations.filter { Int($0.nodeord) ?? 0 <= nodeOrd } ?? []
-               print("필터링된 버스 위치 목록: \(self?.NowbusLocations ?? [])")
+                print("필터링된 버스 위치 목록: \(self?.NowbusLocations ?? [])")
                            
                 completion()  // 버스 위치 데이터를 다 가져오면 completion 핸들러 호출
             }
@@ -172,6 +172,7 @@ class NowBusLocationViewModel: NSObject, ObservableObject {
                         return correctedBusInfo
                     }
                 }
+                
                 completion()  // 데이터를 다 가져오면 completion 핸들러 호출
             }
         }
