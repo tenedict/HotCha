@@ -265,9 +265,7 @@ struct UsingAlertView: View {
                                         startAutoUpdating()
                                     }
                                 // 타이머로 5초마다 업데이트
-                                
                             }
-                        
                         
                         //새로고침 시간, 새로고침 버튼
                         HStack(spacing: 8){
@@ -295,7 +293,7 @@ struct UsingAlertView: View {
             }
         }
         
-        // TODO: 몇 정류장 전 버스인지 표시하는 텍스트
+        // 몇 정류장 전 버스인지 표시
         func getPreviousStopCount() -> String{
             guard let closestBus = viewModel.closestBusLocation else {
                 return "운행 중인 버스를 다시 조회해주세요"
@@ -303,15 +301,12 @@ struct UsingAlertView: View {
             
             // 남은 정류장 수가 +인 경우
             if busAlert.arrivalBusStopNord - (Int(closestBus.nodeord) ?? 0) >= busAlert.alertBusStop {
-                return "도착까지 \(busAlert.arrivalBusStopNord - (Int(closestBus.nodeord) ?? 0)) 정류장 남았습니다."
+                return "목적지까지 \(busAlert.arrivalBusStopNord - (Int(closestBus.nodeord) ?? 0)) 정류장 남았습니다."
             }
             
             // 남은 정류장 수가 -인 경우
             if busAlert.arrivalBusStopNord - (Int(closestBus.nodeord) ?? 0) < busAlert.alertBusStop {
-                // refresh 한번 더 하기
-                // TODO: 현재 버스가 아닌 새로운 버스를 찾아야함
-                
-                return "도착 정류장으로부터 \(-(busAlert.arrivalBusStopNord - (Int(closestBus.nodeord) ?? 0))) 정류장 지났습니다."
+                return "목적지로부터 \(-(busAlert.arrivalBusStopNord - (Int(closestBus.nodeord) ?? 0))) 정류장 지났습니다."
             }
             
             return "새로고침 해주세요"
@@ -419,7 +414,7 @@ struct UsingAlertView: View {
                     }.padding(.bottom, 20)
                     
                     // 현재 위치 정보
-                        Text("도착까지 \(busAlert.arrivalBusStopNord - (Int(closestBus.sectOrd) ?? 0)) 정류장 남았습니다.")
+                        Text(getSeoulPreviousStopCount())
                             .font(.title2)
                             .foregroundStyle(.blackDGray7)
                             .padding(.bottom, 10)
@@ -450,7 +445,6 @@ struct UsingAlertView: View {
                             
                         }
                     
-                    
                     //새로고침 시간, 새로고침 버튼
                     HStack(spacing: 8){
                         Spacer()
@@ -475,6 +469,25 @@ struct UsingAlertView: View {
                 NoBussignalView()
             }
             }
+        }
+        
+        // 몇 정류장 전 버스인지 표시(서울)
+        func getSeoulPreviousStopCount() -> String{
+            guard let closestBus = viewModel.closestBusLocation else {
+                return "운행 중인 버스를 다시 조회해주세요"
+            }
+            
+            // 남은 정류장 수가 +인 경우
+            if busAlert.arrivalBusStopNord - (Int(closestBus.nodeord) ?? 0) >= busAlert.alertBusStop {
+                return "목적지까지 \(busAlert.arrivalBusStopNord - (Int(closestBus.nodeord) ?? 0)) 정류장 남았습니다."
+            }
+            
+            // 남은 정류장 수가 -인 경우
+            if busAlert.arrivalBusStopNord - (Int(closestBus.nodeord) ?? 0) < busAlert.alertBusStop {
+                return "목적지로부터 \(-(busAlert.arrivalBusStopNord - (Int(closestBus.nodeord) ?? 0))) 정류장 지났습니다."
+            }
+            
+            return "새로고침 해주세요"
         }
         
         //자동으로 상태 업데이트
