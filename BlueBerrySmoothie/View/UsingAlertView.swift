@@ -10,11 +10,6 @@
 
 // 알람 화면
 
-
-
-
-
-
 import SwiftUI
 import SwiftData
 import Combine
@@ -162,7 +157,7 @@ struct UsingAlertView: View {
         }
         .onAppear {
             if busAlert.cityCode != 1 {
-                viewModel.startUpdatingBusLocation(cityCode: Int(busAlert.cityCode), routeId: busAlert.routeid)
+                viewModel.startUpdatingBusLocation(cityCode: Int(busAlert.cityCode), routeId: busAlert.routeid, nodeOrd: busAlert.arrivalBusStopNord)
             } else {
                 viewModel.startUpdatingSeoulBusLocation(routeId: busAlert.routeid)
             }
@@ -201,10 +196,6 @@ struct UsingAlertView: View {
         formatter.dateFormat = "a h:mm" // 오전/오후 h:mm 형식
         return formatter.string(from: date)
     }
-    
-    
-    
-    
     
     struct BusAlertInfoView: View {
         @StateObject var viewModel: NowBusLocationViewModel
@@ -247,7 +238,7 @@ struct UsingAlertView: View {
                         }.padding(.bottom, 20)
                         
                         // 현재 위치 정보
-                            Text("알람까지 \(busAlert.arrivalBusStopNord - (Int(closestBus.nodeord) ?? 0)) 정류장 남았습니다.")
+                            Text(getPreviousStopCount())
                                 .font(.title2)
                                 .foregroundStyle(.blackDGray7)
                                 .padding(.bottom, 10)
@@ -303,6 +294,29 @@ struct UsingAlertView: View {
                 }
             }
         }
+        
+        // TODO: 몇 정류장 전 버스인지 표시하는 텍스트
+        func getPreviousStopCount() -> String{
+            guard let closestBus = viewModel.closestBusLocation else {
+                return "운행 중인 버스를 다시 조회해주세요"
+            }
+            
+            // 남은 정류장 수가 +인 경우
+            if busAlert.arrivalBusStopNord - (Int(closestBus.nodeord) ?? 0) >= busAlert.alertBusStop {
+                return "도착까지 \(busAlert.arrivalBusStopNord - (Int(closestBus.nodeord) ?? 0)) 정류장 남았습니다."
+            }
+            
+            // 남은 정류장 수가 -인 경우
+            if busAlert.arrivalBusStopNord - (Int(closestBus.nodeord) ?? 0) < busAlert.alertBusStop {
+                // refresh 한번 더 하기
+                // TODO: 현재 버스가 아닌 새로운 버스를 찾아야함
+                
+                return "도착 정류장으로부터 \(-(busAlert.arrivalBusStopNord - (Int(closestBus.nodeord) ?? 0))) 정류장 지났습니다."
+            }
+            
+            return "새로고침 해주세요"
+        }
+        
         //자동으로 상태 업데이트
            func startAutoUpdating() {
                timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { _ in
@@ -409,8 +423,6 @@ struct UsingAlertView: View {
                             .font(.title2)
                             .foregroundStyle(.blackDGray7)
                             .padding(.bottom, 10)
-                        
-                        
                         
                         Text("현재 정류장은")
                             .font(.caption1)
@@ -632,15 +644,7 @@ struct UsingAlertView: View {
         }
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     
     // BusStop 리스트
     struct BusStopRow: View {
