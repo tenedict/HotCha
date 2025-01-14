@@ -159,7 +159,7 @@ struct UsingAlertView: View {
             if busAlert.cityCode != 1 {
                 viewModel.startUpdatingBusLocation(cityCode: Int(busAlert.cityCode), routeId: busAlert.routeid, nodeOrd: busAlert.arrivalBusStopNord)
             } else {
-                viewModel.startUpdatingSeoulBusLocation(routeId: busAlert.routeid)
+                viewModel.startUpdatingSeoulBusLocation(routeId: busAlert.routeid, sectOrd: busAlert.arrivalBusStopNord)
             }
             
 
@@ -473,18 +473,19 @@ struct UsingAlertView: View {
         
         // 몇 정류장 전 버스인지 표시(서울)
         func getSeoulPreviousStopCount() -> String{
-            guard let closestBus = viewModel.closestBusLocation else {
+            guard let closestBus = viewModel.closestSeoulBusLocation else {
                 return "운행 중인 버스를 다시 조회해주세요"
             }
             
+//            closestBus.
             // 남은 정류장 수가 +인 경우
-            if busAlert.arrivalBusStopNord - (Int(closestBus.nodeord) ?? 0) >= busAlert.alertBusStop {
-                return "목적지까지 \(busAlert.arrivalBusStopNord - (Int(closestBus.nodeord) ?? 0)) 정류장 남았습니다."
+            if busAlert.arrivalBusStopNord - (Int(closestBus.sectOrd) ?? 0) >= busAlert.alertBusStop {
+                return "목적지까지 \(busAlert.arrivalBusStopNord - (Int(closestBus.sectOrd) ?? 0)) 정류장 남았습니다."
             }
             
             // 남은 정류장 수가 -인 경우
-            if busAlert.arrivalBusStopNord - (Int(closestBus.nodeord) ?? 0) < busAlert.alertBusStop {
-                return "목적지로부터 \(-(busAlert.arrivalBusStopNord - (Int(closestBus.nodeord) ?? 0))) 정류장 지났습니다."
+            if busAlert.arrivalBusStopNord - (Int(closestBus.sectOrd) ?? 0) < busAlert.alertBusStop {
+                return "목적지로부터 \(-(busAlert.arrivalBusStopNord - (Int(closestBus.sectOrd) ?? 0))) 정류장 지났습니다."
             }
             
             return "새로고침 해주세요"
