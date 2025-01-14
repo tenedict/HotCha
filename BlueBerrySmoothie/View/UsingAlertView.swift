@@ -219,7 +219,7 @@ struct UsingAlertView: View {
             ZStack {
                 if let closestBus = viewModel.closestBusLocation {
                     Rectangle()
-                        .fill(.whiteasset)
+                        .fill(.gray7DGray1)
                         .opacity(0.8)
                         .cornerRadius(16)
                         .shadow(radius: 2)
@@ -378,7 +378,7 @@ struct UsingAlertView: View {
             ZStack {
                 if let closestBus = viewModel.closestSeoulBusLocation {
                 Rectangle()
-                    .fill(.whiteasset)
+                    .fill(.gray7DGray1)
                     .opacity(0.8)
                     .cornerRadius(16)
                     .shadow(radius: 2)
@@ -705,7 +705,7 @@ struct UsingAlertView: View {
             }
 //            .frame(height: busStop.nodeid == alertStop?.nodeid ? 88 : 60)
             .frame(height: 60)
-            .background(busStop.nodeid == arrivalBusStopID || busStop.nodeid == alertStop?.nodeid ? .whiteDBlack : .whiteasset)
+            .background(busStop.nodeid == arrivalBusStopID || busStop.nodeid == alertStop?.nodeid ? .gray7DGray1 : .whiteDRealBlack)
         }
     }
     

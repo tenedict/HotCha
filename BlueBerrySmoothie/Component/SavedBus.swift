@@ -64,7 +64,6 @@ struct SavedBus: View {
                         Image(systemName: "ellipsis")
                             .font(.title2)
                             .foregroundColor(Color.gray3Dgray6)
-                            .padding(5)
                     }
                 }
                 .padding(.top, 7)
@@ -101,7 +100,6 @@ struct SavedBus: View {
                         Spacer()
                     }
                 }
-                .cornerRadius(16)
                 .padding(.horizontal, 20)
                 
                 Spacer()
