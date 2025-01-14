@@ -26,18 +26,18 @@ class NowBusLocationViewModel: NSObject, ObservableObject {
     }
 
     // 위치 업데이트를 시작하는 함수 (cityCode, routeId 필요)
-    func startUpdatingBusLocation(cityCode: Int, routeId: String) {
+    func startUpdatingBusLocation(cityCode: Int, routeId: String, nodeOrd: Int) {
         stopUpdatingBusLocation() // 기존 타이머 정지
         self.locationManager.getCurrentLocation() // 위치 업데이트
 
-           self.fetchBusLocationData(cityCode: cityCode, routeId: routeId) {
+        self.fetchBusLocationData(cityCode: cityCode, routeId: routeId, nodeOrd: nodeOrd) {
                self.findClosestBusLocation() // 가장 가까운 버스 찾기
            }
         
         // 타이머 시작
         timer = Timer.scheduledTimer(withTimeInterval: 10.0, repeats: true) { [weak self] _ in
             self?.locationManager.getCurrentLocation() // 위치 업데이트
-            self?.fetchBusLocationData(cityCode: cityCode, routeId: routeId) {
+            self?.fetchBusLocationData(cityCode: cityCode, routeId: routeId, nodeOrd: nodeOrd) {
                 self?.findClosestBusLocation() // 가장 가까운 버스 찾기
             }
         }
@@ -90,29 +90,36 @@ class NowBusLocationViewModel: NSObject, ObservableObject {
     
 
     // API를 호출하여 버스 위치 데이터를 가져오는 함수
-    func fetchBusLocationData(cityCode: Int, routeId: String, completion: @escaping () -> Void) {
+    func fetchBusLocationData(cityCode: Int, routeId: String, nodeOrd: Int, completion: @escaping () -> Void) {
         fetchNowBusLocationData(cityCode: cityCode, routeId: routeId) { [weak self] locations in
             DispatchQueue.main.async {
                 // API에서 받은 버스 위치 데이터를 오류 보정 후 저장
-                self?.NowbusLocations = locations.map { self?.validateAndFixCoordinates(for: $0) ?? $0 }
+                self?.NowbusLocations = locations.map { self?.validateAndFixCoordinates(for: $0) ?? $0
+                }
+                print("현재 운행중인 버스 위치 목록: \(self?.NowbusLocations ?? [])")
+                
+                // 도착 정류장을 지난 버스를 배열에서 제외
+                // NowbusLocations 배열에 있는 요소들 중 요소.nodeOrd(Int 타입)의 값이 nodeOrd 보다 크면 배열에서 뺌
+                self?.NowbusLocations = self?.NowbusLocations.filter { Int($0.nodeord) ?? 0 <= nodeOrd } ?? []
+                print("필터링된 버스 위치 목록: \(self?.NowbusLocations ?? [])")
+                           
                 completion()  // 버스 위치 데이터를 다 가져오면 completion 핸들러 호출
             }
         }
     }
     
-    
     // 위치 업데이트를 시작하는 함수 (routeId 필요)
-    func startUpdatingSeoulBusLocation(routeId: String) {
+    func startUpdatingSeoulBusLocation(routeId: String, sectOrd: Int) {
         stopUpdatingBusLocation() // 기존 타이머 정지
         self.locationManager.getCurrentLocation() // 위치 업데이트
-        self.fetchSeoulBusLocationData(routeId: routeId) {
+        self.fetchSeoulBusLocationData(routeId: routeId, sectOrd: sectOrd) {
             self.findClosestSeoulBusLocation() // 가장 가까운 버스 찾기
         }
         
         // 타이머 시작
         timer = Timer.scheduledTimer(withTimeInterval: 10.0, repeats: true) { [weak self] _ in
             self?.locationManager.getCurrentLocation() // 위치 업데이트
-            self?.fetchSeoulBusLocationData(routeId: routeId) {
+            self?.fetchSeoulBusLocationData(routeId: routeId, sectOrd: sectOrd) {
                 self?.findClosestSeoulBusLocation() // 가장 가까운 버스 찾기
             }
         }
@@ -153,8 +160,8 @@ class NowBusLocationViewModel: NSObject, ObservableObject {
 //        }
 //    }
 
-
-    func fetchSeoulBusLocationData(routeId: String, completion: @escaping () -> Void) {
+    // 운행 중인 서울 버스를 받아오는 함수
+    func fetchSeoulBusLocationData(routeId: String, sectOrd: Int, completion: @escaping () -> Void) {
         fetchSeoulBusLocation(busRouteId: routeId) { [weak self] locations, errorMessage in
             DispatchQueue.main.async {
                 if let locations = locations {
@@ -165,6 +172,12 @@ class NowBusLocationViewModel: NSObject, ObservableObject {
                         return correctedBusInfo
                     }
                 }
+                
+                // 도착 정류장을 지난 버스를 배열에서 제외
+                // seoulBusLocations 배열에 있는 요소들 중 요소.sectOrd(Int 타입)의 값이 sectOrd 보다 크면 배열에서 뺌
+                self?.seoulBusLocations = self?.seoulBusLocations.filter { Int($0.sectOrd) ?? 0 <= sectOrd } ?? []
+                print("필터링된 서울 버스 위치 목록: \(self?.seoulBusLocations ?? [])")
+                
                 completion()  // 데이터를 다 가져오면 completion 핸들러 호출
             }
         }

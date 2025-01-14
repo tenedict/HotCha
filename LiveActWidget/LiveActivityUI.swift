@@ -37,7 +37,8 @@ struct LiveActivityUI: Widget {
                                    }
                 .padding(.bottom, 5)
 
-                Text("도착까지 \(context.state.stopsRemaining) 정거장 남았습니다.") // 남은 정류장
+//                Text("도착까지 \(context.state.stopsRemaining) 정거장 남았습니다.") // 남은 정류장
+                Text(getPreviousStopCount(remainStopCount: context.state.stopsRemaining)) // 남은 정류장
                                     .font(.title3) // 글씨 크기를 크게 설정
                                     .foregroundColor(
                                         Color(UIColor { $0.userInterfaceStyle == .dark ? .white : .black })
@@ -121,6 +122,22 @@ struct LiveActivityUI: Widget {
                 Image("AppIcon24")
             }
         }
+    }
+    
+    // TODO: 몇 정류장 전 버스인지 표시하는 텍스트
+    func getPreviousStopCount(remainStopCount: Int) -> String {
+        
+        // 남은 정류장 수가 +인 경우
+        if remainStopCount >= 0 {
+            return "목적지까지 \(remainStopCount) 정류장 남았습니다."
+        }
+        
+        // 남은 정류장 수가 -인 경우
+        if remainStopCount < 0{
+            return "목적지로부터 \(-remainStopCount) 정류장 지났습니다."
+        }
+        
+        return "다시 조회해주십시오."
     }
 }
 
