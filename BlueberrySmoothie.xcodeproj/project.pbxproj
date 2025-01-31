@@ -11,6 +11,7 @@
 		121D491D2CE1B49000EF5269 /* BusLocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121D491C2CE1B49000EF5269 /* BusLocationModel.swift */; };
 		121D491F2CE1B4A300EF5269 /* BusLocationDecoderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121D491E2CE1B4A300EF5269 /* BusLocationDecoderModel.swift */; };
 		121D49212CE1B4E000EF5269 /* FetchBusLocationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121D49202CE1B4E000EF5269 /* FetchBusLocationAPI.swift */; };
+		1222A25B2D4CBBC10074A07A /* SurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1222A25A2D4CBBAE0074A07A /* SurveyView.swift */; };
 		1232B3B02CD1D3DE00C48414 /* BlueBerrySmoothieApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1232B3AF2CD1D3DE00C48414 /* BlueBerrySmoothieApp.swift */; };
 		1232B3B42CD1D3DF00C48414 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1232B3B32CD1D3DF00C48414 /* Assets.xcassets */; };
 		1232B3B72CD1D3DF00C48414 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1232B3B62CD1D3DF00C48414 /* Preview Assets.xcassets */; };
@@ -108,6 +109,7 @@
 		121D491C2CE1B49000EF5269 /* BusLocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusLocationModel.swift; sourceTree = "<group>"; };
 		121D491E2CE1B4A300EF5269 /* BusLocationDecoderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusLocationDecoderModel.swift; sourceTree = "<group>"; };
 		121D49202CE1B4E000EF5269 /* FetchBusLocationAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchBusLocationAPI.swift; sourceTree = "<group>"; };
+		1222A25A2D4CBBAE0074A07A /* SurveyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyView.swift; sourceTree = "<group>"; };
 		1232B3AC2CD1D3DE00C48414 /* BlueBerrySmoothie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlueBerrySmoothie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1232B3AF2CD1D3DE00C48414 /* BlueBerrySmoothieApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueBerrySmoothieApp.swift; sourceTree = "<group>"; };
 		1232B3B32CD1D3DF00C48414 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 		1232B3DC2CD1D40800C48414 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1222A25A2D4CBBAE0074A07A /* SurveyView.swift */,
 				9DD34F622D33B9E10049E5F3 /* NoBussignalView.swift */,
 				8B112CA22CF060B0000827C7 /* AlertLoadingView.swift */,
 				9D19E4B52CEF8F550065967E /* CitySettingView.swift */,
@@ -540,6 +543,7 @@
 				8BF2EFA82CD3A7F2008A6644 /* Alert.swift in Sources */,
 				9DD34F722D33BBA70049E5F3 /* NetworkMonitor.swift in Sources */,
 				1232B3B02CD1D3DE00C48414 /* BlueBerrySmoothieApp.swift in Sources */,
+				1222A25B2D4CBBC10074A07A /* SurveyView.swift in Sources */,
 				8BF2EFAC2CD3AA44008A6644 /* LocationManager.swift in Sources */,
 				12D2B6D42CD3F5BE005CF771 /* getAPIKey.swift in Sources */,
 				9DBE9D9E2CFE199B001622E0 /* BusStopSeoulViewModel.swift in Sources */,
@@ -732,7 +736,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BlueBerrySmoothie/Preview Content\"";
-				DEVELOPMENT_TEAM = V9J26YADA8;
+				DEVELOPMENT_TEAM = H54Z863265;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BlueBerrySmoothie/Info.plist;
@@ -776,7 +780,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BlueBerrySmoothie/Preview Content\"";
-				DEVELOPMENT_TEAM = V9J26YADA8;
+				DEVELOPMENT_TEAM = H54Z863265;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BlueBerrySmoothie/Info.plist;
@@ -818,7 +822,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V9J26YADA8;
+				DEVELOPMENT_TEAM = H54Z863265;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LiveActWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = LiveActWidget;
@@ -851,7 +855,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = H54Z863265;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LiveActWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = LiveActWidget;

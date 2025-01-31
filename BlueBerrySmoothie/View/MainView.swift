@@ -44,6 +44,16 @@ struct MainView: View {
 //                            NavigationLink(destination: CitySettingView()){
 //                                Image("mainMark")
 //                            }
+                            NavigationLink(destination: SurveyView()){
+//                                Image("mainPlus")
+                                Image(systemName: "megaphone")
+                                    .font(.title3)
+                                    .foregroundStyle(.brand)
+                            }
+                        }
+                    }
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        HStack {
                             NavigationLink(destination: AlertSettingMain()){
 //                                Image("mainPlus")
                                 Image(systemName: "plus")
