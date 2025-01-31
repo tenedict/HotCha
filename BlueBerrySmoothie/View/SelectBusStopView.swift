@@ -43,7 +43,7 @@ struct SelectBusStopView: View {
                         unselectedColor: .gray5Dgray3
                     )
                     .onTapGesture {
-
+                        
                         isAutoScroll = true // 버튼을 누르면 자동으로 해당 위치로 스크롤 되도록함
                     }
                     
@@ -54,7 +54,7 @@ struct SelectBusStopView: View {
                         unselectedColor: .gray5Dgray3
                     )
                     .onTapGesture {
-                      
+                        
                         isAutoScroll = true // 버튼을 누르면 자동으로 해당 위치로 스크롤 되도록함
                     }
                 }
@@ -119,33 +119,33 @@ struct SelectBusStopView: View {
         ScrollViewReader { proxy in
             ScrollView(showsIndicators: false) {
                 ForEach(busStopViewModel.busStopList, id: \.nodeord) { busstop in
-                    Button(action: {
-                        DispatchQueue.main.asyncAfter(deadline: .now()) {
-                            HapticManager.shared.triggerImpactFeedback(style: .medium)
-                        }
-                        storeBusStop(busStop: busstop)
-                        print(busstop.nodenm)
-                        showSelectBusSheet = false
-                    }) {
-                        VStack {
-                            Spacer()
-                            HStack {
+                    VStack {
+                        Spacer()
+                        HStack {
+                            Button(action: {
+                                DispatchQueue.main.asyncAfter(deadline: .now()) {
+                                    HapticManager.shared.triggerImpactFeedback(style: .medium)
+                                }
+                                storeBusStop(busStop: busstop)
+                                print(busstop.nodenm)
+                                showSelectBusSheet = false
+                            }) {
+                                
                                 Text("\(busstop.nodenm)")
                                     .padding(.leading, 24)
                                     .foregroundStyle(.gray1Dgray6)
-                                
-                                Spacer()
                             }
+                            .id(busstop.nodeid) // 각 정류장에 고유 ID를 설정
                             Spacer()
-                            Divider()
                         }
-                        .frame(height: 60)
-                        .backgroundStyle(.whiteDgray1)
+                        Spacer()
+                        Divider()
                     }
-                    .id(busstop.nodeid) // 각 정류장에 고유 ID를 설정
+                    .frame(height: 60)
+                    .backgroundStyle(.whiteDgray1)
                 }
             }
-         
+            
         }
     }
     
@@ -154,37 +154,37 @@ struct SelectBusStopView: View {
         ScrollViewReader { proxy in
             ScrollView(showsIndicators: false) {
                 ForEach(busStopSeoulviewModel.busStations, id: \.nodeord) { busstop in
-                    Button(action: {
-                        DispatchQueue.main.asyncAfter(deadline: .now()) {
-                            HapticManager.shared.triggerImpactFeedback(style: .medium)
-                        }
-                        print(busstop)
-                        storeSeoulBusStop(busStop: busstop)
-                        print(busstop)
-                        showSelectBusSheet = false
-                    }) {
-                        VStack {
-                            Spacer()
-                            HStack {
+                    VStack {
+                        Spacer()
+                        HStack {
+                            Button(action: {
+                                DispatchQueue.main.asyncAfter(deadline: .now()) {
+                                    HapticManager.shared.triggerImpactFeedback(style: .medium)
+                                }
+                                print(busstop)
+                                storeSeoulBusStop(busStop: busstop)
+                                print(busstop)
+                                showSelectBusSheet = false
+                            }) {
+                                
                                 Text("\(busstop.nodenm)")
                                     .padding(.leading, 24)
                                     .foregroundStyle(.gray1Dgray6)
                                 
-                                Spacer()
                             }
                             Spacer()
-                            Divider()
                         }
-                        .frame(height: 60)
-                        .backgroundStyle(.whiteDgray1)
+                        Spacer()
+                        Divider()
                     }
-//                    .id(busstop.nodeid) // 각 정류장에 고유 ID를 설정
+                    .frame(height: 60)
+                    .backgroundStyle(.whiteDgray1)
                 }
             }
             .onAppear{
                 print(busStopSeoulviewModel.busStations,"온어피어 프린트")
             }
-         
+            
         }
     }
     
@@ -203,57 +203,57 @@ struct SelectBusStopView: View {
     }
     
     // 하행의 첫 인덱스로 스크롤하는 함수
-//    private func scrollToMiddle(proxy: ScrollViewProxy, completion: @escaping () -> Void) {
-//        // 하행의 가장 작은 order 구함
-//        if let minDownwardNodeord = busStopViewModel.busStopList.filter({ $0.updowncd == 1 }).map({ $0.nodeord }).min() {
-//            //해당 order로 스크롤을 이동함
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-//                withAnimation(.smooth) {
-//                    proxy.scrollTo(minDownwardNodeord, anchor: .center)
-//                    completion()
-//                }
-//            }
-//        }
-//    }
+    //    private func scrollToMiddle(proxy: ScrollViewProxy, completion: @escaping () -> Void) {
+    //        // 하행의 가장 작은 order 구함
+    //        if let minDownwardNodeord = busStopViewModel.busStopList.filter({ $0.updowncd == 1 }).map({ $0.nodeord }).min() {
+    //            //해당 order로 스크롤을 이동함
+    //            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+    //                withAnimation(.smooth) {
+    //                    proxy.scrollTo(minDownwardNodeord, anchor: .center)
+    //                    completion()
+    //                }
+    //            }
+    //        }
+    //    }
     
-//    private func handleScrollChange(midY: CGFloat) {
-//        let screenHeight = UIScreen.main.bounds.height
-//        let centerY = screenHeight / 3 * 2
-//        
-//        if midY > centerY && updowncdselection != 1 && isAutoScroll == false {
-//            updowncdselection = 1 // 중앙 아래
-//            HapticManager.shared.triggerImpactFeedback(style: .light)
-//        } else {
-//            if midY < centerY && updowncdselection != 2 && isAutoScroll == false  { // updowncdselection의 상태가 변경될 때만 실행,
-//                updowncdselection = 2 // 중앙 위
-//                HapticManager.shared.triggerImpactFeedback(style: .light)
-//            }
-//        }
-//    }
+    //    private func handleScrollChange(midY: CGFloat) {
+    //        let screenHeight = UIScreen.main.bounds.height
+    //        let centerY = screenHeight / 3 * 2
+    //
+    //        if midY > centerY && updowncdselection != 1 && isAutoScroll == false {
+    //            updowncdselection = 1 // 중앙 아래
+    //            HapticManager.shared.triggerImpactFeedback(style: .light)
+    //        } else {
+    //            if midY < centerY && updowncdselection != 2 && isAutoScroll == false  { // updowncdselection의 상태가 변경될 때만 실행,
+    //                updowncdselection = 2 // 중앙 위
+    //                HapticManager.shared.triggerImpactFeedback(style: .light)
+    //            }
+    //        }
+    //    }
     
     // 버스 정류장 데이터 저장
     func storeBusStop(busStop: BusStop){
         busStopAlert = BusStopAlert(cityCode: Double(cityCode), bus: bus, allBusStop: busStopViewModel.busStopList, arrivalBusStop: busStop, alertBusStop: 0)
-
+        
         // 이전 정류장 (1~3번째) 저장
         if var unwrappedBusStopAlert = busStopAlert {
             storeBeforeBusStops(for: busStop, alert: &unwrappedBusStopAlert, busStops: busStopViewModel.busStopList)
             busStopAlert = unwrappedBusStopAlert
         }
-
+        
     }
     // 버스 정류장 데이터 저장
     func storeSeoulBusStop(busStop: BusStop){
         busStopAlert = BusStopAlert(cityCode: Double(cityCode), bus: bus, allBusStop: busStopSeoulviewModel.busStations, arrivalBusStop: busStop, alertBusStop: 0)
-
+        
         // 이전 정류장 (1~3번째) 저장
         if var unwrappedBusStopAlert = busStopAlert {
             storeBeforeBusStops(for: busStop, alert: &unwrappedBusStopAlert, busStops: busStopSeoulviewModel.busStations)
             busStopAlert = unwrappedBusStopAlert
         }
-
+        
     }
-
+    
     
     private func directionView(directionName: String, isSelected: Bool, selectedColor: Color, unselectedColor: Color) -> some View {
         VStack {
@@ -279,7 +279,7 @@ struct SelectBusStopView: View {
             func findBusStop(withNodeord targetNodeord: Int) -> BusStop? {
                 return busStops.first { $0.nodeord == targetNodeord }
             }
-
+            
             // 각각의 이전 정류장을 nodeord 값으로 찾기
             alert.firstBeforeBusStop = findBusStop(withNodeord: busStop.nodeord - 1)
             alert.secondBeforeBusStop = findBusStop(withNodeord: busStop.nodeord - 2)
@@ -298,8 +298,8 @@ struct SelectBusStopView: View {
         }
         // 이전 정류장을 최대 3개까지 저장함
         // nodeord가 1부터 시작해서 n+1 만큼 빼주어야함
-
-       
+        
+        
         
     }
 }
